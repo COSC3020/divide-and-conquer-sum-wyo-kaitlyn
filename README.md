@@ -26,3 +26,50 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+From the merge sort slides, the recurrence relation is 
+
+$T(n)$ = 1 if $n \leq 1$
+
+$T(n) = 2T(n/2) + n$ if $n > 1$
+
+
+Using that as a basis for divide and conquer,
+
+$T(n)$ = 1 if $n \leq 1$
+
+$T(n) = 3T(n/3) + 1$ if $n > 1$
+
+is our recurrence relation.  
+
+
+Next, we use substitution to solve
+
+$T(n) = 3T(n/3) + 1$ 
+
+= $3(3T(n/3)) + 1 + 1$ 
+
+= $9T(n/9) + 2$
+
+= $3(9T(n/9)) + 2 + 1$
+
+= $27T(n/27) + 3$
+
+.
+
+.
+
+.
+
+= $3^iT(n/3^i) + i$
+
+
+for $i = log{_3}{n}$
+
+= $nT(n) + log{_3}{n}$ = $n + log{_3}{n} \in \Theta(n)$
+
+That leaves us with a runtime of $\Theta(n)$
+
+
+
+
